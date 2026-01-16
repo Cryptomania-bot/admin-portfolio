@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || "https://portfolio-backend-production-5ea7.up.railway.app/api";
+const BASE_URL = import.meta.env.VITE_API_URL || "https://portfolio-backend-production-7962.up.railway.app/api";
 
 /* ADMIN LOGIN */
 export async function loginAdmin(data) {
