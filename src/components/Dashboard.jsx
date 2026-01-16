@@ -18,7 +18,7 @@ export default function Dashboard() {
 
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const API_URL = import.meta.env.VITE_API_URL || "https://portfolio-backend-production-d48f.up.railway.app/api";
+  const API_URL = import.meta.env.VITE_API_URL || "https://portfolio-backend-production-5ea7.up.railway.app/api";
 
   useEffect(() => {
     if (!token) {

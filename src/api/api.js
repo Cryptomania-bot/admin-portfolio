@@ -1,5 +1,4 @@
-const BASE_URL = "https://portfolio-backend-production-d48f.up.railway.app/api"
-// const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = import.meta.env.VITE_API_URL || "https://portfolio-backend-production-5ea7.up.railway.app/api";
 
 /* ADMIN LOGIN */
 export async function loginAdmin(data) {
