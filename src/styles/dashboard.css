@@ -106,6 +106,7 @@ button[type="submit"] {
   cursor: pointer;
   font-weight: bold;
   border-radius: 5px;
+  width: 100%;
  
 }
 
@@ -117,7 +118,7 @@ button[type="submit"] {
 }
 
 .card, .message-card {
-  background: #fff;
+  background: var(--bg-color);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -155,6 +156,16 @@ button[type="submit"] {
 .delete-btn:hover  {
   background: #ff4444;
   color: white;
+}
+.del{
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
 }
 
 /* Mobile Responsive */

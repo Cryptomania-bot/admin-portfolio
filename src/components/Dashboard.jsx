@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MessageCard from "./MessageCard.jsx";
+import { getMessages } from "../api/api";
 import "../styles/dashboard.css";
 
 export default function Dashboard() {
@@ -28,16 +29,18 @@ export default function Dashboard() {
     fetchData();
   }, [navigate, token]);
 
-  const fetchData = () => {
+  const fetchData = async () => {
     // Fetch Messages
-    fetch(`${API_URL}/messages`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((res) => res.ok ? res.json() : [])
-      .then((data) => {
-        if (Array.isArray(data)) setMessages(data);
-      })
-      .catch(() => navigate("/login"));
+    try {
+      const data = await getMessages(token);
+      if (Array.isArray(data)) setMessages(data);
+    } catch (error) {
+      console.error("Failed to fetch messages:", error);
+      if (error.message.includes("401") || error.message.includes("403")) {
+        localStorage.removeItem("token");
+        navigate("/login");
+      }
+    }
 
     // Fetch Content
     fetch(`${API_URL}/content/socials`).then(res => res.json()).then(setSocials);

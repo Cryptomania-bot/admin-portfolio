@@ -5,7 +5,7 @@ export default function MessageCard({ msg, onDelete }) {
       <p>{msg.email}</p>
       <p>{msg.phone}</p>
       <p>{msg.message}</p>
-      <button onClick={() => onDelete(msg._id)}>Delete</button>
+      <button onClick={() => onDelete(msg._id)} className="del">Delete</button>
     </div>
   );
 }
